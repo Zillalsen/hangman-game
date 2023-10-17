@@ -15,7 +15,7 @@ const maxGuesses = 6;
 const resetGame = () => {
   correctLetters = [];
   wrongGuessCount = 0;
-  images.src = `/images/hangman-${wrongGuessCount}.svg`;
+  images.src = `./images/hangman-${wrongGuessCount}.svg`;
   incorecct.innerText = `${wrongGuessCount}/${maxGuesses}`;
   wordContainer.innerHTML = currentWord
     .split("")
@@ -47,7 +47,7 @@ const gameOver = (isVictory) => {
     modal.querySelector(
       "p"
     ).innerHTML = `${modalText} <span>${currentWord}</span>`;
-    modal.querySelector("img").src = `/images/${
+    modal.querySelector("img").src = `./images/${
       isVictory ? `victory` : `lost`
     }.gif`;
     modal.classList.add("open");
@@ -65,7 +65,7 @@ const initGame = (button, letterClicked) => {
     });
   } else {
     wrongGuessCount++;
-    images.src = `/images/hangman-${wrongGuessCount}.svg`;
+    images.src = `./images/hangman-${wrongGuessCount}.svg`;
   }
   button.disabled = true;
   incorecct.innerText = `${wrongGuessCount}/${maxGuesses}`;
