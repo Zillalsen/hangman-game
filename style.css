@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.wrapper {
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: rgb(201, 154, 244);
+    padding: 0 .75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    opacity: 0;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    background-color: rgb(0,0,0,70%);
+    border-radius: .5rem;
+    transition: opacity .3s ease;
+}
+.modal.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal .content {
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    border-radius: .5rem;
+    background-color: white;
+}
+.content .img {
+    max-width: 130px;
+    margin-bottom: .5rem;
+}
+.modal h3 {
+    font-size: 1.53rem;
+    margin: 1rem 0;
+}
+.modal p {
+    font-size: 1.15rem;
+    margin: 1rem 0 2rem;
+    font-weight: 500;
+}
+.modal p span {
+    font-weight: bold;
+    color: rgb(201, 47, 47);
+}
+.modal button {
+    padding: 1rem 2rem;
+}
+:where(.modal , .alphabet) button {    
+    background-color: rgb(201, 154, 244);
+    text-transform: uppercase;
+    outline: none;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: .2s;
+    opacity: 1;
+}
+:where(.modal , .alphabet) button:hover {
+    opacity: .7;
+}
+.container {
+    max-width: 100%;
+    width: 900px;
+    padding: 60px 40px;
+    border-radius: 1rem;
+    background: #fff;
+    display: flex;
+    align-items: flex-end;
+    padding-inline: 4rem;
+    justify-content: space-evenly;
+}
+.hangman-images {
+    flex: 1;
+}
+.hangman-images img {
+    max-width: 270px;
+}
+.hangman-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    flex: 1;
+}
+.hangman-info .word {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+}
+.word .letter {
+    width: 28px;
+    text-transform: uppercase;
+    border-bottom: 3px solid #333;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.word .letter.guessed {
+    margin: -40px 0 35px;
+    border-bottom: transparent;
+}
+.hangman-info h4 {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+.hangman-info h4 b {
+    color: red;
+}
+.hangman-info .alphabet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3px;
+    margin-top: 1rem;
+}
+.alphabet button {
+    width: calc(100% / 9 - 5px);
+    padding: .5rem 1.2rem;
+}
+.alphabet button[disabled] {
+    opacity: .6;
+    pointer-events: none;
+}
+
+@media screen and (max-width:368px) {
+    .wrapper {
+        background-color: #fff;
+    }
+    .container {
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 30px;
+        gap: 4rem;
+    }
+    .hangman-images img {
+        max-width: 200px;
+    }
+    .word {
+        width: 100%;
+        flex-wrap: wrap;
+    }        
+}
+@media screen and (min-width: 369px) and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 15px;
+        gap: 4rem;
+    }
+    .hangman-images img {
+        max-width: 200px;
+    }
+
+}
